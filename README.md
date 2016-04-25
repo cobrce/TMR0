@@ -1,5 +1,5 @@
 # TMR0
-When programming PIC microcontroller sometimes you need to execute a function within an interval of time without stoping the main loop, in this cas the delay_ms() (or whatever the function you use to delay) is not the solution, hopefully PICs can execute an interruption each time interval (like Timer_Tick in C# for example), and this interval has to be configured using the prescaler (configured in OPTION_REG registers) and the initial valeu of timer0 (in TMR0 register)
+When programming PIC microcontroller sometimes you need to execute a function within an interval of time without stoping the main loop, in this case the delay_ms() (or whatever the function you use to delay) is not the solution, hopefully PICs can execute an interruption each time interval (like Timer_Tick in C# for example), and this interval has to be configured using the prescaler (configured in OPTION_REG registers) and the initial valeu of timer0 (in TMR0 register)
 
 This program helps to find calculate the initial TMR0 and Prescaler for a given frequency and time interval
 
