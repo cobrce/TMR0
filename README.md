@@ -6,13 +6,14 @@ This program helps to calculate the initial TMR0 and Prescaler for a given frequ
 
 Example (MikroC syntaxe): 
 for a frequency of 8MHz and we want the interruption tick each 20ms we get:
-• Prescaler = 256 (1:256)
-• TMR0 = 100
+* Prescaler = 256 (1:256)
+* TMR0 = 100
 Knowing that when the TMR0 register is written, its increment is inhebited for the following 2 instruction cycle (see the datasheet), we adjust TMR0 value by adding 2 or 3 (try and see which one suits you the best)
-• Prescaler = 256 (1:256)
-• TMR0 = 103
+* Prescaler = 256 (1:256)
+* TMR0 = 103
 
 so the program is as follow, in the main function we initialize OPTION_REG, TMR0 and INTCON
+```c
 void main()
 {
   ... ; some other inits here
@@ -25,8 +26,9 @@ void main()
    ... ; // your code here
   }
 }
-
+```
 in the interrupt function (function executed when an interruption is fired) we first check for the flag of the timer (to know that it's the timer who caused the interruption), reinit TMR0 (yes, eachtime) then we clear the flag (see datasheet)
+```c
 void Interrupt()
 {
   if (T0IF)
@@ -36,3 +38,4 @@ void Interrupt()
     INTCON.T0IF = 0;
   }
 }
+```
