@@ -8,6 +8,7 @@ Example (MikroC syntaxe):
 for a frequency of 8MHz and we want the interruption tick each 20ms we get:
 * Prescaler = 256 (1:256)
 * TMR0 = 100
+
 Knowing that when the TMR0 register is written, its increment is inhebited for the following 2 instruction cycle (see the datasheet), we adjust TMR0 value by adding 2 or 3 (try and see which one suits you the best)
 * Prescaler = 256 (1:256)
 * TMR0 = 103
