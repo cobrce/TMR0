@@ -32,7 +32,7 @@ in the interrupt function (function executed when an interruption is fired) we f
 ```c
 void Interrupt()
 {
-  if (T0IF)
+  if (INTCON.T0IF)
   {
     ...; // your code here
     TMR0 = 103;
